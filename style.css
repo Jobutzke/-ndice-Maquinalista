@@ -1,0 +1,57 @@
+body {
+    background-color: #FFD700; /* Fundo amarelo */
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 35%; /* Ajusta para um layout ainda mais estreito */
+    margin: 0 auto;
+    background-color: #FFF;
+    padding: 20px 40px; /* Ajusta o padding para evitar que o texto encoste nas bordas */
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Certifica-se de que padding não aumente o tamanho do input */
+}
+
+button {
+    background-color: #000;
+    color: #FFD700;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.resultado {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
