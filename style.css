@@ -1,11 +1,11 @@
 body {
-    background-color: #FFD700; /* Fundo amarelo */
+    background-color: #FFD700;
     color: #000;
     font-family: Arial, sans-serif;
 }
 
 .container {
-    width: 35%; /* Ajustado para parecer mais proporcional */
+    width: 35%;
     margin: 0 auto;
     background-color: #FFF;
     padding: 20px 40px;
@@ -13,10 +13,6 @@ body {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
     position: relative;
-}
-
-h1 {
-    margin-bottom: 20px;
 }
 
 .form-group {
