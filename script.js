@@ -20,7 +20,7 @@ function atualizarModelos() {
             break;
     }
 
-    modelos.forEach(function(modelo) {
+    modelos.forEach((modelo) => {
         const option = document.createElement("option");
         option.value = modelo;
         option.text = modelo;
@@ -35,30 +35,26 @@ function atualizarAno() {
     const anoSelect = document.getElementById("ano");
     anoSelect.innerHTML = "";
 
-    let anoInicial, anoFinal;
+    const yearOptions = {
+        "320C": [2000, 2010],
+        "320CL": [2000, 2010],
+        "320D": [2011, 2018],
+        "320D2": [2011, 2018],
+        "320D2L": [2011, 2018],
+        "320Atual": [2018, 2024],
+        "320GC": [2018, 2024],
+        "PC210": [2015, 2025],
+        "EC210": [2015, 2025],
+        "210": [2015, 2025]
+    };
 
-    if (modelo.startsWith("320") || modelo === "PC210" || modelo === "EC210" || modelo === "210") {
-        yearOptions = {
-            "320C": [2000, 2010],
-            "320CL": [2000, 2010],
-            "320D": [2011, 2018],
-            "320D2": [2011, 2018],
-            "320D2L": [2011, 2018],
-            "320Atual": [2018, 2024],
-            "320GC": [2018, 2024],
-            "PC210": [2015, 2025],
-            "EC210": [2015, 2025],
-            "210": [2015, 2025]
-        };
+    const [anoInicial, anoFinal] = yearOptions[modelo] || [2020, 2025];
 
-        [anoInicial, anoFinal] = yearOptions[modelo] || [2020, 2025];
-
-        for (let ano = anoInicial; ano <= anoFinal; ano++) {
-            const option = document.createElement("option");
-            option.value = ano;
-            option.text = ano;
-            anoSelect.add(option);
-        }
+    for (let ano = anoInicial; ano <= anoFinal; ano++) {
+        const option = document.createElement("option");
+        option.value = ano;
+        option.text = ano;
+        anoSelect.add(option);
     }
 }
 
@@ -80,7 +76,7 @@ function calcularValor() {
     const anoAtual = 2025;
     const horasAnuais = 2000;
 
-    let depreciacaoAnual = {
+    const depreciacaoAnual = {
         2024: 0.10,
         2023: 0.10,
         2022: 0.09,
@@ -109,7 +105,7 @@ function calcularValor() {
     };
 
     for (let i = anoAtual - 1; i >= anoSelecionado; i--) {
-        if (depreciacaoAnual[i] != undefined) {
+        if (depreciacaoAnual[i] !== undefined) {
             precoCalculado -= precoCalculado * depreciacaoAnual[i];
         }
     }
@@ -124,14 +120,12 @@ function calcularValor() {
         precoCalculado += Math.abs(diferencaHoras) * 3;
     }
 
-    // Descontos adicionais para marcas específicas
     if (marca === "Volvo" || marca === "Komatsu") {
         precoCalculado *= 0.98;
     } else if (marca === "John Deere") {
         precoCalculado *= 0.97;
     }
 
-    // Garante que o preço calculado não seja menor que R$ 100.000,00
     precoCalculado = Math.max(precoCalculado, 100000);
 
     document.getElementById("valorResultado").innerText = `Valor Calculado: ${formatarMoeda(precoCalculado)}`;
