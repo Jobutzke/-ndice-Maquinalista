@@ -17,23 +17,21 @@
             </div>
             <div class="form-group">
                 <label for="marca">Marca</label>
-                <input type="text" id="marca" value="Caterpillar" readonly>
+                <select id="marca" onchange="atualizarModelos()">
+                    <option value="Caterpillar">Caterpillar</option>
+                    <option value="Komatsu">Komatsu</option>
+                    <option value="Volvo">Volvo</option>
+                    <option value="John Deere">John Deere</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="pesoOperacional">Peso Operacional</label>
-                <input type="text" id="pesoOperacional" value="20 toneladas" readonly>
+                <input type="text" id="pesoOperacional" value="20-22 toneladas" readonly>
             </div>
             <div class="form-group">
                 <label for="modelo">Modelo</label>
                 <select id="modelo" onchange="atualizarAno()">
-                    <option value="" disabled selected>Selecionar modelo</option>
-                    <option value="320C">320C</option>
-                    <option value="320CL">320CL</option>
-                    <option value="320D">320D</option>
-                    <option value="320D2">320D2</option>
-                    <option value="320D2L">320D2L</option>
-                    <option value="320GC">320GC</option>
-                    <option value="320Atual">320 (Versão Atual)</option>
+                    <!-- Modelos aparecem aqui dinamicamente -->
                 </select>
             </div>
             <div class="form-group">
@@ -49,5 +47,6 @@
         <div id="valorResultado" class="resultado"></div>
     </div>
     <script src="script.js"></script>
+    <div class="beta-version">Versão beta: Nem todos os modelos estão disponíveis</div>
 </body>
 </html>
